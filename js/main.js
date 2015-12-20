@@ -1,7 +1,7 @@
 $(document).ready(function() {
   //Generate dropdown
   function generateDropdown(id, statusText, startupText) {
-    return "<a class='dropdown-button btn' href='#' data-activates='" + id + "'><i class='material-icons'>settings</i></a><ul id='" + id + "' class='dropdown-content'><li><a class='action'>" + statusText + "</a></li><li><a href='#!'>Delete</a></li><li class='divider'></li><li><a href='#!'>" + startupText + "</a></li></ul>";
+    return "<a class='dropdown-button btn' href='#' data-activates='" + id + "'><i class='material-icons'>settings</i></a><ul id='" + id + "' class='dropdown-content'><li><a class='action'>" + statusText + "</a></li><li><a class='delete'>Delete</a></li><li class='divider'></li><li><a class='startup'>" + startupText + "</a></li></ul>";
   }
   
   //File listing
@@ -47,7 +47,7 @@ $(document).ready(function() {
         });
         
         //Start/stop config file
-        $(".action").click(function() {
+        $(".action, .delete, .startup").click(function() {
           var configName = $(this.closest("ul")).prop("id");
           configName = configName + "="; //Add '=' back in to base 64 string that we previously removed
           configName = atob(configName);
@@ -59,6 +59,15 @@ $(document).ready(function() {
           }
           else if (text == "Stop") {
             var data = {stop: configName};
+          }
+          else if (text == "Delete") {
+            var data = {delete: configName};
+          }
+          else if (text == "Add to Startup") {
+            var data = {addToStartup: configName};
+          }
+          else if (text == "Remove from Startup") {
+            var data = {removeFromStartup: configName};
           }
           
           $.post("php/helper.php", data, function(response) {

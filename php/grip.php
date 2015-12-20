@@ -13,7 +13,17 @@
   }
   
   function deleteConfig($configFile) {
-    exec("rm /grip-config/" + $configFile);
+    unlink("/grip-config/" . $configFile);
+    
+    $running = readFromFile("running");
+    $startup = readFromFile("startup");
+    
+    if ($configFile == $running) {
+      writeToFile("running", "");
+    }
+    if ($configFile == $startup) {
+      writeToFile("startup", "");
+    }
   }
   
   function addToStartup($configFile) {
