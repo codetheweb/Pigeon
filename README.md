@@ -11,6 +11,8 @@ Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP).
 - Blazing fast
 - All around awesomeness!
 
+**NOTE: Please use a UPS**.  Without one your single board computer may shut down with the incorrect status or become corrupted.  Tips on a UPS can be found on the [Wiki](https://github.com/codetheweb/Pigeon/wiki).
+
 ## Q&A
 #### Why PHP?
 The only other major option, in my mind, is NodeJS.  And while that's hip and cool, I've found it
