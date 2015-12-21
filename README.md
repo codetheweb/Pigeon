@@ -9,6 +9,7 @@ Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP).
 - Can be used offline
 - Easy to upload, test, run, and add to startup different GRIP scripts
 - Blazing fast
+- Uses (for the most part) an MVC structure making it easier to maintain and read - no ugly files with PHP and HTML combined!
 - All around awesomeness!
 
 **NOTE: Please use a UPS**.  Without one your single board computer may shut down with the incorrect status or become corrupted.  Tips on using a UPS can be found on the [Wiki](https://github.com/codetheweb/Pigeon/wiki/UPS).
