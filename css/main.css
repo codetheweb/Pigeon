@@ -1,9 +1,20 @@
 @import "../font/material/material-icons.css";
 
+.darkmode {
+  background-color: #212121; /* Equivalent to grey darken-4 */
+  color: white;
+}
+
 .upload-file-btn {
   width: 100%;
 }
 
 .table-centered th, .table-centered td {
   text-align: center;
+}
+
+.invert {
+  margin-left: 2vh;
+  margin-top: 2vh;
+  font-size: 200%;
 }

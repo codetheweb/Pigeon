@@ -1,7 +1,7 @@
 $(document).ready(function() {
   //Generate dropdown
   function generateDropdown(id, statusText, startupText) {
-    return "<a class='dropdown-button btn' href='#' data-activates='" + id + "'><i class='material-icons'>settings</i></a><ul id='" + id + "' class='dropdown-content'><li><a class='action'>" + statusText + "</a></li><li><a class='delete'>Delete</a></li><li class='divider'></li><li><a class='startup'>" + startupText + "</a></li></ul>";
+    return "<a class='btn waves-effect amber accent-4 dropdown-button' href='#' data-activates='" + id + "'><i class='material-icons'>settings</i></a><ul id='" + id + "' class='dropdown-content'><li><a class='action'>" + statusText + "</a></li><li><a class='delete'>Delete</a></li><li class='divider'></li><li><a class='startup'>" + startupText + "</a></li></ul>";
   }
   
   //File listing
@@ -109,5 +109,35 @@ $(document).ready(function() {
         }
       }
     });
+  });
+  
+  //Dark theme
+  function darkMode(change) {
+    if (Cookies.get("theme") == "dark") {
+      if (change) {
+        $("body").removeClass("darkmode");
+        Cookies.set("theme", "light");
+      }
+      else {
+        $("body").addClass("darkmode");
+        Cookies.set("theme", "dark");
+      }
+    }
+    else {
+      if (change) {
+        $("body").addClass("darkmode");
+        Cookies.set("theme", "dark");
+      }
+      else {
+        $("body").removeClass("darkmode");
+        Cookies.set("theme", "light");
+      }
+    }
+  }
+  
+  darkMode(); //Init darkmode if cookie
+  
+  $(".invert").click(function() {
+    darkMode(true);
   });
 });
