@@ -5,3 +5,7 @@ sudo mkdir /grip-config
 sudo chown www-data /grip-config
 cd /var/www/html
 git clone git@github.com:codetheweb/Pigeon.git
+cp -r Pigeon/* /var/www/html
+rm -d Pigeon
+cd php/db
+sudo chown www-data running startup
