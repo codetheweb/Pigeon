@@ -1,7 +1,9 @@
 $(document).ready(function() {
   //Generate dropdown
-  function generateDropdown(id, statusText, startupText) {
-    return "<a class='btn waves-effect amber accent-4 dropdown-button' href='#' data-activates='" + id + "'><i class='material-icons'>settings</i></a><ul id='" + id + "' class='dropdown-content'><li><a class='action'>" + statusText + "</a></li><li><a class='delete'>Delete</a></li><li class='divider'></li><li><a class='startup'>" + startupText + "</a></li></ul>";
+  function generateDropdown(name, statusText, startupText) {
+    var id = name.hashCode();
+    
+    return "<a class='btn waves-effect amber accent-4 dropdown-button' href='#' data-activates='" + id + "'><i class='material-icons'>settings</i></a><ul id='" + id + "' class='dropdown-content' data-filename='" + name + "'><li><a class='action'>" + statusText + "</a></li><li><a class='delete'>Delete</a></li><li class='divider'></li><li><a class='startup'>" + startupText + "</a></li></ul>";
   }
   
   //File listing
@@ -15,25 +17,24 @@ $(document).ready(function() {
         
         files.forEach(function(file) {
           var status = "On Disk";
-          var escapedName = btoa(file.name); //Encode filename to base 64 so we don't have to mess with spaces, quotes, etc
-          escapedName = escapedName.slice(0, -1); //Slice off standard '=' on base 64 strings. Otherwise, the browser gets confused.
+          var filename = file.name;
           
-          dropdownHTML = generateDropdown(escapedName, "Start", "Add to Startup"); //Default dropdown
+          dropdownHTML = generateDropdown(filename, "Start", "Add to Startup"); //Default dropdown
           
           if (file.running == true && file.startup == true) {
-            dropdownHTML = generateDropdown(escapedName, "Stop", "Remove from Startup");
+            dropdownHTML = generateDropdown(filename, "Stop", "Remove from Startup");
             status = "Running, Startup";
           }
           else if (file.running == true) {
-            dropdownHTML = generateDropdown(escapedName, "Stop", "Add to Startup");
+            dropdownHTML = generateDropdown(filename, "Stop", "Add to Startup");
             status = "Running";
           }
           else if (file.startup == true) {
-            dropdownHTML = generateDropdown(escapedName, "Start", "Remove from Startup");
+            dropdownHTML = generateDropdown(filename, "Start", "Remove from Startup");
             status = "Startup";
           }
           
-          $("table thead").after("<tr><td>" + file.name + "</td><td>" + status + "</td><td>" + dropdownHTML + "</td></tr>"); //Inject created table row
+          $("table thead").after("<tr><td>" + filename + "</td><td>" + status + "</td><td>" + dropdownHTML + "</td></tr>"); //Inject created table row
         });
         
         $('.dropdown-button').dropdown({ //Initiate created dropdowns
@@ -48,9 +49,8 @@ $(document).ready(function() {
         
         //Start/stop config file
         $(".action, .delete, .startup").click(function() {
-          var configName = $(this.closest("ul")).prop("id");
-          configName = configName + "="; //Add '=' back in to base 64 string that we previously removed
-          configName = atob(configName);
+          var configName = $(this.closest("ul")).data("filename");
+          console.log(configName);
           
           var text = $(this).text();
           
@@ -141,3 +141,15 @@ $(document).ready(function() {
     darkMode(true);
   });
 });
+
+//Simple hashing function - thanks [SO](http://stackoverflow.com/a/7616484)!
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr, len;
+  if (this.length === 0) return hash;
+  for (i = 0, len = this.length; i < len; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
