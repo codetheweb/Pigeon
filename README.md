@@ -13,8 +13,8 @@ Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP).
 
 ## Q&A
 #### Why PHP?
-The only other major option, in my mind, is NodeJS.  And while that's hip and cool, in my expereince it
-- Is time consuming and hard to install on embeded ARM platforms
+The only other major option, in my mind, is NodeJS.  And while that's hip and cool, I've found it
+- Time consuming and hard to install on embeded ARM platforms
 - Uses more resorces than Apache + PHP
 
 Plus, PHP makes it ridiculusly easy to execute system commands.
