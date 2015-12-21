@@ -17,7 +17,7 @@ The only other major option, in my mind, is NodeJS.  And while that's hip and co
 - Time consuming and hard to install on embeded ARM platforms
 - Uses more resorces than Apache + PHP
 
-Plus, PHP makes it ridiculusly easy to execute system commands.
+Plus, PHP makes it ridiculously easy to execute system commands.
 
 #### Java runs in the browser, so are there any plans to add the GRIP source as a Java applet?
 Probably not.  The source for GRIP clocks in at over 100 MBs, mostly because they included OpenCV with it.  It might work if someone made a 'Lite' version that consists of just a frontend that communicates with the server.
