@@ -4,9 +4,9 @@ sudo apt-get install apache2 php5 git -y
 sudo mkdir /grip-config
 sudo chown www-data /grip-config
 cd /var/www/html
-rm index.html
-git clone git@github.com:codetheweb/Pigeon.git
+sudo rm index.html
+git clone https://github.com/codetheweb/Pigeon.git
 cp -r Pigeon/* /var/www/html
-rm -d Pigeon
+rm -d -f -R Pigeon
 cd php/db
 sudo chown www-data running startup
