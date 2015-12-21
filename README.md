@@ -3,7 +3,7 @@ Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP).
 
 ![Screenshot](screenshot.png)
 
-**[Installation Instructions](https://github.com/codetheweb/Pigeon/wiki)**
+**[Installation Instructions](https://github.com/codetheweb/Pigeon/wiki/Linux-Installation)**
 
 ## Why Pigeon?
 - Can be used offline
@@ -11,7 +11,7 @@ Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP).
 - Blazing fast
 - All around awesomeness!
 
-**NOTE: Please use a UPS**.  Without one your single board computer may shut down with the incorrect status or become corrupted.  Tips on a UPS can be found on the [Wiki](https://github.com/codetheweb/Pigeon/wiki).
+**NOTE: Please use a UPS**.  Without one your single board computer may shut down with the incorrect status or become corrupted.  Tips on using a UPS can be found on the [Wiki](https://github.com/codetheweb/Pigeon/wiki/UPS).
 
 ## Q&A
 #### Why PHP?
