@@ -1,5 +1,5 @@
 # Pigeon
-Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP).
+Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP), made with single board computers in mind.
 
 ![Screenshot](screenshot.png)
 
@@ -21,6 +21,12 @@ The only other major option, in my mind, is NodeJS.  And while that's hip and co
 - Uses more resorces than Apache + PHP
 
 Plus, PHP makes it ridiculously easy to execute system commands.
+
+#### Does this work on Windows?
+I have no idea.  I don't use Windows regularly.  Here are some potential problems if you're looking to make with work with Windows:
+- The install script won't work, obviously
+- Path structure - Pigeon reads/writes to files in a couple places, and a *nix path is much different than a Windows one
+- Reboot scripts - Pigeon runs 2 scripts on startup, which won't work under Windows
 
 #### Java runs in the browser, so are there any plans to add the GRIP source as a Java applet?
 Probably not.  The source for GRIP clocks in at over 100 MBs, mostly because they included OpenCV with it.  It might work if someone made a 'Lite' version that consists of just a frontend that communicates with the server.
