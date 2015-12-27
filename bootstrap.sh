@@ -7,7 +7,7 @@ cd /var/www/html
 sudo rm index.html
 git clone https://github.com/codetheweb/Pigeon.git
 cp -r Pigeon/* /var/www/html
-rm -d -f -R Pigeon
+rm -f -R Pigeon
 cd php/db
 sudo chown www-data running startup
 echo "Type this IP address in your browser to get started:"
