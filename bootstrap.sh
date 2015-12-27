@@ -10,3 +10,5 @@ cp -r Pigeon/* /var/www/html
 rm -d -f -R Pigeon
 cd php/db
 sudo chown www-data running startup
+echo "Type this IP address in your browser to get started:"
+hostname -I | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
