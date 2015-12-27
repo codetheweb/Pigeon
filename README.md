@@ -1,5 +1,5 @@
 # Pigeon
-Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP), made with single board computers in mind.
+Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP), made with FRC teams and single board computers in mind.
 
 ![Screenshot](screenshot.png)
 
@@ -15,6 +15,9 @@ Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP), mad
 **NOTE: Please use a UPS**.  Without one your single board computer may shut down with the incorrect status or become corrupted.  Tips on using a UPS can be found on the [Wiki](https://github.com/codetheweb/Pigeon/wiki/UPS).
 
 ## Q&A
+#### What can it do?
+With Pigeon, you can upload scripts and rapidly test them out - Pigeon provides controls for starting, stopping, and deleting uploaded scripts.  You can also add a GRIP script to startup, so that it will run without any outside intervention when your robot starts.
+
 #### Why PHP?
 The only other major option, in my mind, is NodeJS.  And while that's hip and cool, I've found it
 - Time consuming and hard to install on embeded ARM platforms
@@ -28,11 +31,9 @@ I have no idea.  I don't use Windows regularly.  Here are some potential problem
 - Path structure - Pigeon reads/writes to files in a couple places, and a *nix path is much different than a Windows one
 - Reboot scripts - Pigeon runs 2 scripts on startup, which won't work under Windows
 
-#### Java runs in the browser, so are there any plans to add the GRIP source as a Java applet?
+#### Java runs in some browsers, so are there any plans to add the GRIP source as a Java applet?
 Probably not.  The source for GRIP clocks in at over 100 MBs, mostly because they included OpenCV with it.  It might work if someone made a 'Lite' version that consists of just a frontend that communicates with the server.
-
-#### Why are config files for GRIP stored in a root directory (`/grip-config`)?
-They're stored there so that if you want to upgrade Pigeon by trashing `/var/www/html` and re-cloning, you won't lose the files.
+Additionally, Java is being phased out (or already has been dropped) by Chrome, Firefox, and Internet Explorer - the 3 major browsers.
 
 #### This isn't very secure, is it?
 That doesn't sound like a question :smile:.  No, it's not.  By crafting a special filename and giving it to `/helper.php`, an attacker could execute anything they wanted.  I haven't focused on security, because most FRC teams are not a target.  But if someone wants to make this more secure, they're more than welcome.
