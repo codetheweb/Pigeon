@@ -1,4 +1,10 @@
 # Pigeon
+**PIGEON, AS IS, CURRENTLY DOES NOT WORK**
+
+The user interface works, but it cannot actually start and stop GRIP.
+
+
+
 Web interface for FRC's [GRIP](https://github.com/WPIRoboticsProjects/GRIP), made with FRC teams and single board computers in mind.
 
 ![Screenshot](screenshot.png)
