@@ -1,7 +1,7 @@
 # Pigeon
 **PIGEON, AS IS, CURRENTLY DOES NOT WORK**
 
-The user interface works, but it cannot actually start and stop GRIP.
+The user interface works, but it cannot actually start and stop GRIP. Shell scripts need to be added to run on reboot.
 
 
 
@@ -35,11 +35,11 @@ Plus, PHP makes it ridiculously easy to execute system commands.
 I have no idea.  I don't use Windows regularly.  Here are some potential problems if you're looking to make with work with Windows:
 - The install script won't work, obviously
 - Path structure - Pigeon reads/writes to files in a couple places, and a *nix path is much different than a Windows one
-- Reboot scripts - Pigeon runs 2 scripts on startup, which won't work under Windows
+- Reboot scripts - Pigeon (will) run 2 scripts on startup, which won't work under Windows
 
 #### Java runs in some browsers, so are there any plans to add the GRIP source as a Java applet?
 Probably not.  The source for GRIP clocks in at over 100 MBs, mostly because they included OpenCV with it.  It might work if someone made a 'Lite' version that consists of just a frontend that communicates with the server.
-Additionally, Java is being phased out (or already has been dropped) by Chrome, Firefox, and Internet Explorer - the 3 major browsers.
+Additionally, Java is being phased out (or already has been dropped) by Chrome, Firefox, and Internet Explorer.
 
 #### This isn't very secure, is it?
 That doesn't sound like a question :smile:.  No, it's not.  By crafting a special filename and giving it to `/helper.php`, an attacker could execute anything they wanted.  I haven't focused on security, because most FRC teams are not a target.  But if someone wants to make this more secure, they're more than welcome.
